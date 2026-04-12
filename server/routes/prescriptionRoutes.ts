@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { db } from '../database/db';
-import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware';
+import { db } from '../database/db.js';
+import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware.js';
 
 const router = Router();
 
@@ -12,13 +12,13 @@ router.get('/my', verifyToken, requireRole('patient'), async (req: AuthRequest, 
     const prescriptionsRes = await db.query(`
       SELECT p.*, a.appointment_date, du.name as doctor_name, d.specialization
       FROM prescriptions p
-      JOIN appointments a ON p.appointment_id = a.id
-      JOIN doctors d ON p.doctor_id = d.id
-      JOIN users du ON d.user_id = du.id
+             JOIN appointments a ON p.appointment_id = a.id
+             JOIN doctors d ON p.doctor_id = d.id
+             JOIN users du ON d.user_id = du.id
       WHERE p.patient_id = ?
       ORDER BY p.visit_date DESC
     `, [patient.id]);
-    
+
     const prescriptions = prescriptionsRes.rows;
 
     for (let p of prescriptions) {
@@ -36,7 +36,7 @@ router.get('/my', verifyToken, requireRole('patient'), async (req: AuthRequest, 
 // Doctor: Create a prescription
 router.post('/', verifyToken, requireRole('doctor'), async (req: AuthRequest, res) => {
   const { appointment_id, patient_id, diagnosis, items, file_data } = req.body;
-  
+
   try {
     const doctor = await db.queryOne('SELECT id, consultation_fee FROM doctors WHERE user_id = ?', [req.user?.id]) as any;
     if (!doctor) return res.status(404).json({ message: 'Doctor not found' });
@@ -46,16 +46,16 @@ router.post('/', verifyToken, requireRole('doctor'), async (req: AuthRequest, re
       await client.query('BEGIN');
       // 1. Insert prescription
       const pRes = await client.query(
-        'INSERT INTO prescriptions (appointment_id, doctor_id, patient_id, diagnosis, visit_date, file_data) VALUES ($1, $2, $3, $4, CURRENT_DATE, $5) RETURNING id',
-        [appointment_id, doctor.id, patient_id, diagnosis, file_data || null]
+          'INSERT INTO prescriptions (appointment_id, doctor_id, patient_id, diagnosis, visit_date, file_data) VALUES ($1, $2, $3, $4, CURRENT_DATE, $5) RETURNING id',
+          [appointment_id, doctor.id, patient_id, diagnosis, file_data || null]
       );
       const prescriptionId = pRes.rows[0].id;
-      
+
       // 2. Insert items
       for (const item of items) {
         await client.query(
-          'INSERT INTO prescription_items (prescription_id, medicine_name, dosage, frequency, duration, notes) VALUES ($1, $2, $3, $4, $5, $6)',
-          [prescriptionId, item.medicine_name, item.dosage, item.frequency, item.duration, item.notes]
+            'INSERT INTO prescription_items (prescription_id, medicine_name, dosage, frequency, duration, notes) VALUES ($1, $2, $3, $4, $5, $6)',
+            [prescriptionId, item.medicine_name, item.dosage, item.frequency, item.duration, item.notes]
         );
       }
 
@@ -64,8 +64,8 @@ router.post('/', verifyToken, requireRole('doctor'), async (req: AuthRequest, re
 
       // 4. Generate Bill
       await client.query(
-        'INSERT INTO billing (appointment_id, patient_id, amount) VALUES ($1, $2, $3)',
-        [appointment_id, patient_id, doctor.consultation_fee || 0]
+          'INSERT INTO billing (appointment_id, patient_id, amount) VALUES ($1, $2, $3)',
+          [appointment_id, patient_id, doctor.consultation_fee || 0]
       );
       await client.query('COMMIT');
     } catch (e) {

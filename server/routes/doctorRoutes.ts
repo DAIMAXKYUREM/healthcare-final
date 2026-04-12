@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { db } from '../database/db';
-import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware';
+import { db } from '../database/db.js';
+import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware.js';
 import { format, parse, addMinutes, isBefore } from 'date-fns';
 
 const router = Router();
@@ -10,8 +10,8 @@ router.get('/', verifyToken, async (req, res) => {
     const doctors = await db.query(`
       SELECT d.id, d.specialization, d.consultation_fee, u.name, u.email, dept.name as department
       FROM doctors d
-      JOIN users u ON d.user_id = u.id
-      LEFT JOIN departments dept ON d.department_id = dept.id
+             JOIN users u ON d.user_id = u.id
+             LEFT JOIN departments dept ON d.department_id = dept.id
     `);
     res.json(doctors.rows);
   } catch (error) {
@@ -25,8 +25,8 @@ router.get('/my-profile', verifyToken, requireRole('doctor'), async (req: AuthRe
     const doctor = await db.queryOne(`
       SELECT d.*, u.name, u.email, u.phone, dept.name as department_name
       FROM doctors d
-      JOIN users u ON d.user_id = u.id
-      LEFT JOIN departments dept ON d.department_id = dept.id
+             JOIN users u ON d.user_id = u.id
+             LEFT JOIN departments dept ON d.department_id = dept.id
       WHERE u.id = ?
     `, [req.user?.id]);
     if (!doctor) return res.status(404).json({ message: 'Doctor not found' });
@@ -47,9 +47,9 @@ router.put('/my-profile', verifyToken, requireRole('doctor'), async (req: AuthRe
     try {
       await client.query('BEGIN');
       await client.query('UPDATE doctors SET specialization = $1, qualification = $2, consultation_fee = $3 WHERE id = $4',
-        [specialization, qualification, consultation_fee, doctor.id]);
+          [specialization, qualification, consultation_fee, doctor.id]);
       await client.query('UPDATE users SET phone = $1 WHERE id = $2',
-        [phone, req.user?.id]);
+          [phone, req.user?.id]);
       await client.query('COMMIT');
     } catch (e) {
       await client.query('ROLLBACK');
@@ -90,7 +90,7 @@ router.post('/schedule', verifyToken, requireRole('doctor'), async (req: AuthReq
       for (const s of schedules) {
         if (s.start_time && s.end_time) {
           await client.query('INSERT INTO doctor_schedules (doctor_id, day_of_week, start_time, end_time) VALUES ($1, $2, $3, $4)',
-            [doctor.id, s.day_of_week, s.start_time, s.end_time]);
+              [doctor.id, s.day_of_week, s.start_time, s.end_time]);
         }
       }
       await client.query('COMMIT');
@@ -110,14 +110,14 @@ router.post('/schedule', verifyToken, requireRole('doctor'), async (req: AuthReq
 router.get('/:id/available-slots', verifyToken, async (req, res) => {
   const { id } = req.params;
   const { date } = req.query as { date: string };
-  
+
   try {
     const dateObj = new Date(date);
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const dayOfWeek = days[dateObj.getDay()];
 
     const schedule = await db.queryOne('SELECT * FROM doctor_schedules WHERE doctor_id = ? AND day_of_week = ?', [id, dayOfWeek]) as any;
-    
+
     if (!schedule || !schedule.start_time || !schedule.end_time) {
       return res.json([]); // No working hours on this day
     }
@@ -135,7 +135,7 @@ router.get('/:id/available-slots', verifyToken, async (req, res) => {
 
     while (isBefore(currentTime, endTime)) {
       const timeString = format(currentTime, 'HH:mm');
-      
+
       // Check if slot is in the past for today
       const isPast = date === format(now, 'yyyy-MM-dd') && isBefore(currentTime, now);
 

@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { db } from '../database/db';
-import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware';
+import { db } from '../database/db.js';
+import { verifyToken, requireRole, AuthRequest } from '../middleware/authMiddleware.js';
 
 const router = Router();
 
 router.post('/', verifyToken, requireRole('patient', 'admin'), async (req: AuthRequest, res) => {
   const { doctor_id, appointment_date, appointment_time, reason } = req.body;
-  
+
   try {
     // Get patient ID for the logged-in user
     let patient_id;
