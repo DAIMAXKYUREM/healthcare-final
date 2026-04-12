@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import api from '../../api/axiosInstance';
 import toast from 'react-hot-toast';
 import { motion } from 'motion/react';
+import { ArrowLeft, Mail, Lock, Activity, CheckCircle2 } from 'lucide-react';
 
 export const Login = ({ role }: { role: 'admin' | 'doctor' | 'patient' }) => {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export const Login = ({ role }: { role: 'admin' | 'doctor' | 'patient' }) => {
       const res = await api.post('/auth/login', { email, password, role });
       login(res.data.token, res.data.user);
       toast.success('Logged in successfully');
-      
+
       if (res.data.user.role === 'admin') navigate('/admin');
       else if (res.data.user.role === 'doctor') navigate('/doctor');
       else navigate('/patient');
@@ -33,118 +34,150 @@ export const Login = ({ role }: { role: 'admin' | 'doctor' | 'patient' }) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex bg-[#FF3366] overflow-hidden font-sans relative">
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-[#0000FF] rounded-full border-[3px] border-black opacity-20 hidden md:block"></div>
-      <div className="absolute bottom-20 right-20 w-48 h-48 bg-[#FFEA00] rounded-full border-[3px] border-black hidden md:block z-0"></div>
-      <div className="absolute top-40 right-40 text-[#0000FF] text-9xl font-bold opacity-50 hidden lg:block z-0">+</div>
-      <div className="absolute bottom-40 left-40 w-24 h-8 bg-[#00FFFF] border-[3px] border-black rounded-full rotate-45 hidden md:block"></div>
-      <div className="absolute top-1/2 left-20 text-white text-8xl font-bold opacity-30 hidden lg:block">+</div>
+      <div className="min-h-screen flex bg-background overflow-hidden font-sans relative">
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 z-10"
+        >
+          <div className="mx-auto w-full max-w-sm lg:w-96">
+            <div className="mb-10">
+              <Link to="/login" className="inline-flex items-center text-sm font-bold text-primary hover:text-primary-dark transition-colors mb-8 group">
+                <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                Back to Portals
+              </Link>
 
-      <motion.div 
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 z-10"
-      >
-        <div className="mx-auto w-full max-w-sm lg:w-96 bg-white p-8 border-[3px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <div>
-            <h2 className="mt-2 text-4xl font-extrabold text-black capitalize font-serif">{role} Login</h2>
-            {role === 'patient' && (
-              <p className="mt-2 text-sm text-black font-medium">
-                Or <Link to="/register" className="font-bold text-[#0000FF] hover:underline decoration-2 underline-offset-4">register as a new patient</Link>
+              <div className="flex items-center mb-6">
+                <div className="bg-primary-light p-2 rounded-xl">
+                  <Activity className="h-6 w-6 text-primary" />
+                </div>
+                <span className="ml-3 text-xl font-display font-bold text-slate-900 tracking-tight">
+                HealthCare+
+              </span>
+              </div>
+
+              <h2 className="text-3xl font-heading font-bold text-slate-900 capitalize">{role} Login</h2>
+              <p className="mt-2 text-slate-500">
+                Welcome back! Please enter your details.
               </p>
-            )}
-          </div>
+            </div>
 
-          <div className="mt-8">
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-bold text-black uppercase tracking-wider">Email address</label>
-                <div className="mt-1">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-slate-400" />
+                  </div>
                   <input
-                    type="email"
-                    required
-                    className="appearance-none block w-full px-4 py-3 border-[2px] border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:translate-y-[2px] focus:translate-x-[2px] focus:outline-none transition-all font-medium"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      required
+                      placeholder="name@example.com"
+                      className="block w-full pl-11 pr-4 py-3 bg-surface border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-black uppercase tracking-wider">Password</label>
-                <div className="mt-1">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-slate-400" />
+                  </div>
                   <input
-                    type="password"
-                    required
-                    className="appearance-none block w-full px-4 py-3 border-[2px] border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:translate-y-[2px] focus:translate-x-[2px] focus:outline-none transition-all font-medium"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      required
+                      placeholder="••••••••"
+                      className="block w-full pl-11 pr-4 py-3 bg-surface border border-slate-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className="pt-4">
-                <button
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                      id="remember-me"
+                      name="remember-me"
+                      type="checkbox"
+                      className="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded"
+                  />
+                  <label htmlFor="remember-me" className="ml-2 block text-sm text-slate-600">
+                    Remember me
+                  </label>
+                </div>
+                <div className="text-sm">
+                  <a href="#" className="font-semibold text-primary hover:text-primary-dark">
+                    Forgot password?
+                  </a>
+                </div>
+              </div>
+
+              <button
                   type="submit"
-                  className="w-full flex justify-center py-3 px-4 border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-lg font-bold text-[#0000FF] bg-[#FFEA00] hover:bg-[#FFD700] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] active:translate-y-[4px] active:translate-x-[4px] transition-all uppercase tracking-wider"
-                >
-                  Sign in
-                </button>
-              </div>
-              
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                transition={{ delay: 0.4 }}
-                className="mt-6 bg-[#00FFFF] p-4 border-[2px] border-black text-sm text-black font-medium shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  className="w-full btn-primary py-3.5 text-base"
               >
-                {role === 'admin' && (
-                  <>
-                    <p className="font-bold text-black mb-1 uppercase tracking-wider">"Efficiency is the foundation of survival."</p>
-                    <p className="italic text-xs">— System Administrator</p>
-                  </>
-                )}
-                {role === 'doctor' && (
-                  <>
-                    <p className="font-bold text-black mb-1 uppercase tracking-wider">"Precision. Focus. Results."</p>
-                    <p className="italic text-xs">— Chief of Surgery</p>
-                  </>
-                )}
-                {role === 'patient' && (
-                  <>
-                    <p className="font-bold text-black mb-1 uppercase tracking-wider">"Your health, unapologetically prioritized."</p>
-                    <p className="italic text-xs">— HealthCare+ Promise</p>
-                  </>
-                )}
-              </motion.div>
+                Sign In
+              </button>
 
-              <div className="mt-6 text-center space-y-3">
-                <Link to="/login" className="text-sm font-bold text-black hover:text-[#0000FF] flex items-center justify-center transition-colors uppercase tracking-wider">
-                  <span className="mr-2">&larr;</span> Back to Portal Selection
-                </Link>
-                <Link to="/" className="text-sm font-bold text-black hover:text-[#0000FF] flex items-center justify-center transition-colors uppercase tracking-wider">
-                  <span className="mr-2">&larr;</span> Back to Home
-                </Link>
-              </div>
+              {role === 'patient' && (
+                  <p className="text-center text-sm text-slate-600">
+                    Don't have an account?{' '}
+                    <Link to="/register" className="font-bold text-primary hover:text-primary-dark">
+                      Create an account
+                    </Link>
+                  </p>
+              )}
             </form>
+
+            <div className="mt-10 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+              <div className="flex items-start gap-3">
+                <div className="bg-primary/10 p-1.5 rounded-lg mt-0.5">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed italic">
+                  {role === 'admin' && "Secure access for system administrators. Monitor hospital operations and manage staff efficiently."}
+                  {role === 'doctor' && "Doctor portal access. Manage your patient records and daily schedule with precision."}
+                  {role === 'patient' && "Your health data is protected with end-to-end encryption. Access your records anytime."}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
-      
-      <div className="hidden lg:block relative w-0 flex-1 z-10 border-l-[3px] border-black">
-        <div className="absolute inset-0 bg-[#FFEA00] flex items-center justify-center overflow-hidden">
-           <div className="absolute w-[150%] h-[150%] bg-[#FF3366] rounded-full -right-[50%] -top-[25%] border-[3px] border-black"></div>
-           <div className="absolute text-[#0000FF] text-[20rem] font-bold opacity-20 -left-10 top-20">+</div>
-           <img
-            className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-80"
-            src={getImageForRole()}
-            alt="Role specific"
-            referrerPolicy="no-referrer"
-          />
+        </motion.div>
+
+        <div className="hidden lg:block relative w-0 flex-1">
+          <div className="absolute inset-0">
+            <img
+                className="h-full w-full object-cover"
+                src={getImageForRole()}
+                alt="Healthcare background"
+                referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+
+            <div className="absolute bottom-20 left-20 right-20">
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="bg-surface/10 backdrop-blur-md p-8 rounded-[2rem] border border-white/20"
+              >
+                <h3 className="text-4xl font-heading font-bold text-white mb-4">
+                  Advanced Healthcare <br />
+                  <span className="text-primary-light">Management System</span>
+                </h3>
+                <p className="text-white/80 text-lg max-w-md">
+                  Streamlining medical services for a better patient experience and efficient hospital operations.
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
