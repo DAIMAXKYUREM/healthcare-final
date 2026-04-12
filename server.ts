@@ -1,14 +1,14 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import { initDb } from "./server/database/db";
-import authRoutes from "./server/routes/authRoutes";
-import patientRoutes from "./server/routes/patientRoutes";
-import doctorRoutes from "./server/routes/doctorRoutes";
-import appointmentRoutes from "./server/routes/appointmentRoutes";
-import prescriptionRoutes from "./server/routes/prescriptionRoutes";
-import adminRoutes from "./server/routes/adminRoutes";
-import billingRoutes from "./server/routes/billingRoutes";
+import { initDb } from "./server/database/db.js";
+import authRoutes from "./server/routes/authRoutes.js";
+import patientRoutes from "./server/routes/patientRoutes.js";
+import doctorRoutes from "./server/routes/doctorRoutes.js";
+import appointmentRoutes from "./server/routes/appointmentRoutes.js";
+import prescriptionRoutes from "./server/routes/prescriptionRoutes.js";
+import adminRoutes from "./server/routes/adminRoutes.js";
+import billingRoutes from "./server/routes/billingRoutes.js";
 
 const app = express();
 
