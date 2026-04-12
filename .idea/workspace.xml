@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c70dfc78-ddc4-4c2e-9c5a-b327942927ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/healthcare-final.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/adminRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/appointmentRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/appointmentRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/authRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/authRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/billingRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/billingRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/doctorRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/doctorRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/patientRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/patientRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/prescriptionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/prescriptionRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/AdminDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/AdminDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/AdminDoctors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/AdminDoctors.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/PortalSelection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/PortalSelection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/doctor/DoctorDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/DoctorDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/doctor/DoctorProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/DoctorProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/doctor/MySchedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/MySchedule.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/patient/BookAppointment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/BookAppointment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientBilling.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientBilling.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/patient/Prescriptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/Prescriptions.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="1d734ecc-337d-42fd-9e74-fe13d93be3db" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,22 +13,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DAIMAXKYUREM"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DAIMAXKYUREM&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DAIMAXKYUREM/healthcare-final",
-    "accountId": "56fe72d3-f483-4f7c-8054-555a2b6272fc"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DAIMAXKYUREM/healthcare-final&quot;,
+    &quot;accountId&quot;: &quot;56fe72d3-f483-4f7c-8054-555a2b6272fc&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2,
-  "fromUser": false
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3CG6rEf6G3KaEYPkkvT1RXOwgt2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -82,7 +52,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Users\\shrey\\Downloads\\healthcare-final\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2026.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
