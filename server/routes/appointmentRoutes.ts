@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/', verifyToken, requireRole('patient', 'admin'), async (req: AuthRequest, res) => {
   const { doctor_id, appointment_date, appointment_time, reason } = req.body;
-
+  
   try {
     // Get patient ID for the logged-in user
     let patient_id;

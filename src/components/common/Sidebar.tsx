@@ -41,41 +41,41 @@ export const Sidebar = () => {
   const userLinks = links[user.role] || [];
 
   return (
-      <div className="w-72 bg-surface border-r border-slate-100 h-full overflow-y-auto flex flex-col z-40">
-        <div className="flex-1 py-8 px-6 space-y-2">
-          <div className="mb-6 px-4">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Main Menu</p>
-          </div>
-          {userLinks.map((link) => {
-            const Icon = link.icon;
-            const isActive = location.pathname === link.path;
-            return (
-                <Link
-                    key={link.path}
-                    to={link.path}
-                    className={cn(
-                        "flex items-center px-4 py-3.5 text-sm font-semibold rounded-2xl transition-all duration-200 group",
-                        isActive
-                            ? "bg-primary text-white shadow-lg shadow-primary/20"
-                            : "text-slate-500 hover:bg-primary-light hover:text-primary"
-                    )}
-                >
-                  <Icon className={cn("h-5 w-5 mr-3 transition-colors duration-200", isActive ? "text-white" : "text-slate-400 group-hover:text-primary")} />
-                  {link.name}
-                </Link>
-            );
-          })}
+    <div className="w-72 bg-surface border-r border-slate-100 h-full overflow-y-auto flex flex-col z-40">
+      <div className="flex-1 py-8 px-6 space-y-2">
+        <div className="mb-6 px-4">
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Main Menu</p>
         </div>
-
-        <div className="p-6 border-t border-slate-100">
-          <div className="bg-primary-light rounded-2xl p-4">
-            <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Need Help?</p>
-            <p className="text-[11px] text-slate-600 mb-3">Contact our 24/7 support for any assistance.</p>
-            <button className="w-full py-2 bg-white text-primary text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all">
-              Support Center
-            </button>
-          </div>
+        {userLinks.map((link) => {
+          const Icon = link.icon;
+          const isActive = location.pathname === link.path;
+          return (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={cn(
+                "flex items-center px-4 py-3.5 text-sm font-semibold rounded-2xl transition-all duration-200 group",
+                isActive 
+                  ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                  : "text-slate-500 hover:bg-primary-light hover:text-primary"
+              )}
+            >
+              <Icon className={cn("h-5 w-5 mr-3 transition-colors duration-200", isActive ? "text-white" : "text-slate-400 group-hover:text-primary")} />
+              {link.name}
+            </Link>
+          );
+        })}
+      </div>
+      
+      <div className="p-6 border-t border-slate-100">
+        <div className="bg-primary-light rounded-2xl p-4">
+          <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Need Help?</p>
+          <p className="text-[11px] text-slate-600 mb-3">Contact our 24/7 support for any assistance.</p>
+          <button className="w-full py-2 bg-white text-primary text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all">
+            Support Center
+          </button>
         </div>
       </div>
+    </div>
   );
 };

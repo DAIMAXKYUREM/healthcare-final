@@ -27,7 +27,7 @@ router.get('/doctors', async (req, res) => {
 
 router.post('/doctors', async (req, res) => {
   const { name, email, password, phone, specialization, department_id, consultation_fee } = req.body;
-
+  
   try {
     const existingUser = await db.queryOne('SELECT id FROM users WHERE email = ?', [email]);
     if (existingUser) {
@@ -40,14 +40,14 @@ router.post('/doctors', async (req, res) => {
     try {
       await client.query('BEGIN');
       const userResult = await client.query(
-          'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
-          [name, email, passwordHash, 'doctor', phone]
+        'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+        [name, email, passwordHash, 'doctor', phone]
       );
       const userId = userResult.rows[0].id;
-
+      
       await client.query(
-          'INSERT INTO doctors (user_id, specialization, department_id, consultation_fee) VALUES ($1, $2, $3, $4)',
-          [userId, specialization, department_id || null, consultation_fee || 0]
+        'INSERT INTO doctors (user_id, specialization, department_id, consultation_fee) VALUES ($1, $2, $3, $4)',
+        [userId, specialization, department_id || null, consultation_fee || 0]
       );
       await client.query('COMMIT');
     } catch (e) {
@@ -82,7 +82,7 @@ router.get('/patients', async (req, res) => {
 
 router.post('/patients', async (req, res) => {
   const { name, email, password, phone, age, gender, address, blood_group } = req.body;
-
+  
   try {
     const existingUser = await db.queryOne('SELECT id FROM users WHERE email = ?', [email]);
     if (existingUser) {
@@ -95,14 +95,14 @@ router.post('/patients', async (req, res) => {
     try {
       await client.query('BEGIN');
       const userResult = await client.query(
-          'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
-          [name, email, passwordHash, 'patient', phone]
+        'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+        [name, email, passwordHash, 'patient', phone]
       );
       const userId = userResult.rows[0].id;
-
+      
       await client.query(
-          'INSERT INTO patients (user_id, age, gender, address, blood_group) VALUES ($1, $2, $3, $4, $5)',
-          [userId, age, gender, address, blood_group]
+        'INSERT INTO patients (user_id, age, gender, address, blood_group) VALUES ($1, $2, $3, $4, $5)',
+        [userId, age, gender, address, blood_group]
       );
       await client.query('COMMIT');
     } catch (e) {
@@ -156,14 +156,14 @@ router.post('/staff', async (req, res) => {
     try {
       await client.query('BEGIN');
       const userResult = await client.query(
-          'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
-          [name, email, passwordHash, 'staff', phone]
+        'INSERT INTO users (name, email, password_hash, role, phone) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+        [name, email, passwordHash, 'staff', phone]
       );
       const userId = userResult.rows[0].id;
-
+      
       await client.query(
-          'INSERT INTO staff (user_id, designation, department_id, shift, salary) VALUES ($1, $2, $3, $4, $5)',
-          [userId, designation, department_id || null, shift, salary || 0]
+        'INSERT INTO staff (user_id, designation, department_id, shift, salary) VALUES ($1, $2, $3, $4, $5)',
+        [userId, designation, department_id || null, shift, salary || 0]
       );
       await client.query('COMMIT');
     } catch (e) {
@@ -186,10 +186,10 @@ router.get('/metrics', async (req, res) => {
     const availableStaff = await db.queryOne("SELECT COUNT(*) as count FROM users WHERE role = 'staff' AND is_active = true");
     const upcomingAppointments = await db.queryOne("SELECT COUNT(*) as count FROM appointments WHERE status = 'scheduled' AND appointment_date >= CURRENT_DATE");
     const emergencies = await db.queryOne("SELECT COUNT(*) as count FROM emergencies WHERE status = 'reported' OR status = 'assigned'");
-
+    
     const totalIncome = await db.queryOne("SELECT COALESCE(SUM(amount), 0) as total FROM billing WHERE payment_status = 'paid'");
     const totalExpenses = await db.queryOne("SELECT COALESCE(SUM(amount), 0) as total FROM expenses");
-
+    
     res.json({
       activeDoctors: parseInt(activeDoctors?.count || '0'),
       activePatients: parseInt(activePatients?.count || '0'),

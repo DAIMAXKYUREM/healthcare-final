@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c70dfc78-ddc4-4c2e-9c5a-b327942927ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/healthcare-final.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/adminRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/appointmentRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/appointmentRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/authRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/authRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/billingRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/billingRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/doctorRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/doctorRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/patientRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/patientRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/prescriptionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/prescriptionRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/AdminDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/AdminDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/AdminDoctors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/AdminDoctors.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/PortalSelection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/PortalSelection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/doctor/DoctorDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/DoctorDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/doctor/DoctorProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/DoctorProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/doctor/MySchedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/doctor/MySchedule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/patient/BookAppointment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/BookAppointment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientBilling.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientBilling.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/patient/PatientProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/PatientProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/patient/Prescriptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/patient/Prescriptions.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DAIMAXKYUREM"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DAIMAXKYUREM/healthcare-final",
+    "accountId": "56fe72d3-f483-4f7c-8054-555a2b6272fc"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3CG6rEf6G3KaEYPkkvT1RXOwgt2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "feature-test",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/shrey/Downloads/healthcare-final",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\shrey\\Downloads\\healthcare-final\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-WS-261.22158.274" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c70dfc78-ddc4-4c2e-9c5a-b327942927ce" name="Changes" comment="" />
+      <created>1775999755940</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775999755940</updated>
+      <workItem from="1775999757059" duration="5605000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
