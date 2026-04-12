@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { LogOut, User, Activity } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import { LogOut, User, Activity, Moon, Sun } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,7 +14,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-surface border-b border-slate-100 z-50 sticky top-0">
+    <nav className="bg-surface border-b border-slate-100 z-50 sticky top-0 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
@@ -27,6 +29,14 @@ export const Navbar = () => {
           </div>
           
           <div className="flex items-center space-x-6">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
+
             {user ? (
               <>
                 <div className="hidden md:flex items-center space-x-3 px-4 py-2 bg-slate-50 rounded-full border border-slate-100">

@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Activity, Facebook, Twitter, Instagram, ArrowRight, CheckCircle2, Phone, Mail, MapPin } from 'lucide-react';
+import { Activity, Facebook, Twitter, Instagram, ArrowRight, CheckCircle2, Phone, Mail, MapPin, Moon, Sun } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export const Home = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="min-h-screen bg-background font-sans overflow-x-hidden">
       {/* Navbar */}
-      <nav className="relative z-50 bg-surface/80 backdrop-blur-md border-b border-slate-100 sticky top-0">
+      <nav className="relative z-50 bg-surface/80 backdrop-blur-md border-b border-slate-100 sticky top-0 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <div className="flex items-center">
@@ -23,7 +26,16 @@ export const Home = () => {
               <a href="#" className="text-sm font-semibold text-primary">Home</a>
               <a href="#services" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Services</a>
               <a href="#gallery" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Gallery</a>
-              <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">About</a>
+              <Link to="/about" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">About</Link>
+              
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+
               <Link to="/login" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Login</Link>
               <Link to="/register" className="btn-primary">Get Started</Link>
             </div>
@@ -153,9 +165,6 @@ export const Home = () => {
                 </div>
                 <h4 className="text-xl font-bold text-slate-900 mb-4">{service.title}</h4>
                 <p className="text-slate-600 mb-6">{service.desc}</p>
-                <a href="#" className="text-primary font-bold text-sm flex items-center group-hover:translate-x-1 transition-transform">
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
               </div>
             ))}
           </div>
@@ -193,9 +202,6 @@ export const Home = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                  <p className="text-white font-bold">Modern Equipment</p>
-                </div>
               </motion.div>
             ))}
           </div>

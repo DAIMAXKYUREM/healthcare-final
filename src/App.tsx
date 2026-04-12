@@ -7,12 +7,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 import { Navbar } from './components/common/Navbar';
 import { Sidebar } from './components/common/Sidebar';
 
 // Pages
 import { Home } from './pages/Home';
+import { About } from './pages/About';
 import { PortalSelection } from './pages/auth/PortalSelection';
 import { Login } from './pages/auth/Login';
 import { Register } from './pages/auth/Register';
@@ -34,7 +36,7 @@ import { AdminEmergencies } from './pages/admin/AdminEmergencies';
 import { AdminReports } from './pages/admin/AdminReports';
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
-  <div className="h-screen bg-[#f5f5f5] flex flex-col font-sans">
+  <div className="h-screen bg-background flex flex-col font-sans transition-colors duration-300">
     <Navbar />
     <div className="flex flex-1 overflow-hidden">
       <Sidebar />
@@ -47,11 +49,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Toaster position="top-right" />
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <Toaster position="top-right" />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<PortalSelection />} />
           <Route path="/login/patient" element={<Login role="patient" />} />
           <Route path="/login/doctor" element={<Login role="doctor" />} />
@@ -89,7 +93,8 @@ export default function App() {
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </Router>
-    </AuthProvider>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
