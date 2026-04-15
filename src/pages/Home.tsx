@@ -109,7 +109,7 @@ export const Home = () => {
             >
               <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/10">
                 <img 
-                  src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=1200&q=80" 
+                  src="https://pbs.twimg.com/media/G_xIARbbUAggxX7.png" 
                   alt="Healthcare Professional" 
                   className="w-full h-[600px] object-cover"
                   referrerPolicy="no-referrer"
